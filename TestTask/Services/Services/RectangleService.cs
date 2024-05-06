@@ -12,7 +12,7 @@ namespace Services.Services
 {
     public interface IRectangleService
     {
-        Task<IEnumerable<Rectangle>> GetAllAsync(Segment segment);
+        Task<IEnumerable<Rectangle>> GetIntersectingRectangles(Segment segment);
     }
     public class RectangleService : IRectangleService
     {
@@ -25,7 +25,7 @@ namespace Services.Services
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<IEnumerable<Rectangle>> GetAllAsync(Segment segment)
+        public async Task<IEnumerable<Rectangle>> GetIntersectingRectangles(Segment segment)
         {
             try
             {

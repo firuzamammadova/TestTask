@@ -34,7 +34,7 @@ namespace Tests
         {
             //ARRANGE
             var segment = new Segment { X1 = 0, Y1 = 0, X2 = 2, Y2 = 2 };
-            _rectangleService.Setup(c => c.GetAllAsync(It.IsAny<Segment>())).ReturnsAsync(_rectangleList);
+            _rectangleService.Setup(c => c.GetIntersectingRectangles(It.IsAny<Segment>())).ReturnsAsync(_rectangleList);
 
             //ACT
             var controllerResponse = await _controller.GetIntersectingRectangles(segment);
@@ -81,7 +81,7 @@ namespace Tests
         {
             //ARRANGE
             _rectangleService
-                    .Setup(u => u.GetAllAsync(It.IsAny<Segment>()))
+                    .Setup(u => u.GetIntersectingRectangles(It.IsAny<Segment>()))
                     .ThrowsAsync(new Exception());
             var segment = new Segment { X1 = 0, Y1 = 0, X2 = 2, Y2 = 2 };
 
@@ -100,7 +100,7 @@ namespace Tests
         {
             //ARRANGE
             _rectangleService
-                    .Setup(u => u.GetAllAsync(It.IsAny<Segment>()))
+                    .Setup(u => u.GetIntersectingRectangles(It.IsAny<Segment>()))
                     .ReturnsAsync(() => null);
             var segment = new Segment { X1 = 0, Y1 = 0, X2 = 2, Y2 = 2 };
 

@@ -32,7 +32,7 @@ namespace TestTask.Controllers
                     return BadRequest(ModelState);
                 }
 
-                var response = await _rectangleService.GetAllAsync(request);
+                var response = await _rectangleService.GetIntersectingRectangles(request);
 
                 if (response?.ToList() == null)
                 {
